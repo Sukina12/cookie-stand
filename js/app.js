@@ -87,15 +87,14 @@ let tableFooter = function(){
   for (let i=0; i<workHours.length; i++){
     const th2El = document.createElement('th');
     footerRowEl.appendChild(th2El);
-    th2El.textContent = sum[i];
+    th2El.textContent = sumTotal()[i];
   }
   const th3El = document.createElement ('th');
   footerRowEl.appendChild(th3El);
-  th3El.textContent = totalTotals;
+  th3El.textContent = seatle.total+tokyo.total+paris.total+dubai.total+Lima.total;
 };
 let sumTotal = function(){
   let sum=[];
- 
   for (let i=0; i<workHours.length; i++){
     sum[i] = seatle.numberOfCookies[i] + tokyo.numberOfCookies[i]+ paris.numberOfCookies[i] + dubai.numberOfCookies[i] + Lima.numberOfCookies[i];
   }
@@ -122,8 +121,6 @@ paris.getNumOfCookies();
 Lima.getNumOfCust();
 Lima.getNumOfCookies();
 
-let sum = sumTotal();
-let totalTotals = seatle.total+tokyo.total+paris.total+dubai.total+Lima.total;
 
 tableHeader();
 seatle.render();
