@@ -1,8 +1,9 @@
-h1 {
+header h1 {
     color: rgb(129, 6, 82);
-     background-color: rgb(179, 150, 182);
+    background-color: rgb(179, 150, 182);
 }
-body {
+
+main {
     text-align: center;
     background-color: rgb(250, 179, 212);
     border-style: double;
