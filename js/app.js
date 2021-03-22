@@ -16,24 +16,20 @@ const Seatle={
   workHours: ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'],
   total: 0,
 
-  getNumOfCust : function (min,max){
+  getNumOfCust : function (){
     for (let x=0; x<14; x++)
     {
-      this.numOfCust[x]=getRandomNumber(min,max);
+      let cusNum=getRandomNumber(this.minNumOfCust,this.maxNumOfCust);
+      this.numOfCust.push(cusNum);
     }
   },
   getNumOfCookies : function (){
     for (let i=0; i<14; i++)
     {
-      this.numberOfCookies[i]= Math.floor(this.numOfCust[i] * this.averageNumOfCookies);
+      let cookiesNum = Math.floor(this.numOfCust[i] * this.averageNumOfCookies);
+      this.numberOfCookies.push(cookiesNum);
+      this.total=this.total+ cookiesNum;
     }
-    return this.numberOfCookies;
-  },
-  getTotal : function (){
-    for (let i=0; i<14; i++){
-      this.total=this.total+ this.numberOfCookies[i];
-    }
-    return this.total;
   },
   render : function (){
     const container = document.getElementById('Location-profiles');
@@ -56,9 +52,8 @@ const Seatle={
   }
 
 };
-Seatle.getNumOfCust (Seatle.minNumOfCust,Seatle.maxNumOfCust);
+Seatle.getNumOfCust ();
 Seatle.getNumOfCookies();
-Seatle.getTotal();
 Seatle.render();
 console.log(Seatle);
 
@@ -73,24 +68,19 @@ const Tokyo={
   workHours: ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'],
   total: 0,
 
-  getNumOfCust : function (min,max){
-    for (let x=0; x<14; x++)
-    {
-      this.numOfCust[x]=getRandomNumber(min,max);
+  getNumOfCust : function (){
+    for (let x=0; x<14; x++){
+      let cusNum=getRandomNumber(this.minNumOfCust,this.maxNumOfCust);
+      this.numOfCust.push(cusNum);
     }
   },
   getNumOfCookies : function (){
     for (let i=0; i<14; i++)
     {
-      this.numberOfCookies[i]=Math.floor (this.numOfCust[i] * this.averageNumOfCookies);
+      let cookiesNum = Math.floor(this.numOfCust[i] * this.averageNumOfCookies);
+      this.numberOfCookies.push(cookiesNum);
+      this.total=this.total+ cookiesNum;
     }
-    return this.numberOfCookies;
-  },
-  getTotal : function (){
-    for (let i=0; i<14; i++){
-      this.total=this.total+ this.numberOfCookies[i];
-    }
-    return this.total;
   },
   render : function (){
     const container = document.getElementById('Location-profiles');
@@ -113,9 +103,8 @@ const Tokyo={
   }
 
 };
-Tokyo.getNumOfCust (Tokyo.minNumOfCust,Tokyo.maxNumOfCust);
+Tokyo.getNumOfCust ();
 Tokyo.getNumOfCookies();
-Tokyo.getTotal();
 Tokyo.render();
 console.log(Tokyo);
 
@@ -131,24 +120,20 @@ const Dubai={
   workHours: ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'],
   total: 0,
 
-  getNumOfCust : function (min,max){
+  getNumOfCust : function (){
     for (let x=0; x<14; x++)
     {
-      this.numOfCust[x]=getRandomNumber(min,max);
+      let cusNum=getRandomNumber(this.minNumOfCust,this.maxNumOfCust);
+      this.numOfCust.push(cusNum);
     }
   },
   getNumOfCookies : function (){
     for (let i=0; i<14; i++)
     {
-      this.numberOfCookies[i]= Math.floor(this.numOfCust[i] * this.averageNumOfCookies);
+      let cookiesNum = Math.floor(this.numOfCust[i] * this.averageNumOfCookies);
+      this.numberOfCookies.push(cookiesNum);
+      this.total=this.total+ cookiesNum;
     }
-    return this.numberOfCookies;
-  },
-  getTotal : function (){
-    for (let i=0; i<14; i++){
-      this.total=this.total+ this.numberOfCookies[i];
-    }
-    return this.total;
   },
   render : function (){
     const container = document.getElementById('Location-profiles');
@@ -171,9 +156,8 @@ const Dubai={
   }
 
 };
-Dubai.getNumOfCust (Seatle.minNumOfCust,Seatle.maxNumOfCust);
+Dubai.getNumOfCust ();
 Dubai.getNumOfCookies();
-Dubai.getTotal();
 Dubai.render();
 console.log(Dubai);
 
@@ -188,24 +172,20 @@ const Paris={
   workHours: ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'],
   total: 0,
 
-  getNumOfCust : function (min,max){
+  getNumOfCust : function (){
     for (let x=0; x<14; x++)
     {
-      this.numOfCust[x]=getRandomNumber(min,max);
+      let cusNum=getRandomNumber(this.minNumOfCust,this.maxNumOfCust);
+      this.numOfCust.push(cusNum);
     }
   },
   getNumOfCookies : function (){
     for (let i=0; i<14; i++)
     {
-      this.numberOfCookies[i]= Math.floor(this.numOfCust[i] * this.averageNumOfCookies);
+      let cookiesNum = Math.floor(this.numOfCust[i] * this.averageNumOfCookies);
+      this.numberOfCookies.push(cookiesNum);
+      this.total=this.total+ cookiesNum;
     }
-    return this.numberOfCookies;
-  },
-  getTotal : function (){
-    for (let i=0; i<14; i++){
-      this.total=this.total+ this.numberOfCookies[i];
-    }
-    return this.total;
   },
   render : function (){
     const container = document.getElementById('Location-profiles');
@@ -228,9 +208,8 @@ const Paris={
   }
 
 };
-Paris.getNumOfCust (Seatle.minNumOfCust,Seatle.maxNumOfCust);
+Paris.getNumOfCust ();
 Paris.getNumOfCookies();
-Paris.getTotal();
 Paris.render();
 console.log(Paris);
 
@@ -246,24 +225,20 @@ const Lima={
   workHours: ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'],
   total: 0,
 
-  getNumOfCust : function (min,max){
+  getNumOfCust : function (){
     for (let x=0; x<14; x++)
     {
-      this.numOfCust[x]=getRandomNumber(min,max);
+      let cusNum=getRandomNumber(this.minNumOfCust,this.maxNumOfCust);
+      this.numOfCust.push(cusNum);
     }
   },
   getNumOfCookies : function (){
     for (let i=0; i<14; i++)
     {
-      this.numberOfCookies[i]= Math.floor(this.numOfCust[i] * this.averageNumOfCookies);
+      let cookiesNum = Math.floor(this.numOfCust[i] * this.averageNumOfCookies);
+      this.numberOfCookies.push(cookiesNum);
+      this.total=this.total+ cookiesNum;
     }
-    return this.numberOfCookies;
-  },
-  getTotal : function (){
-    for (let i=0; i<14; i++){
-      this.total=this.total+ this.numberOfCookies[i];
-    }
-    return this.total;
   },
   render : function (){
     const container = document.getElementById('Location-profiles');
@@ -286,9 +261,8 @@ const Lima={
   }
 
 };
-Lima.getNumOfCust (Seatle.minNumOfCust,Seatle.maxNumOfCust);
+Lima.getNumOfCust ();
 Lima.getNumOfCookies();
-Lima.getTotal();
 Lima.render();
 console.log(Lima);
 
