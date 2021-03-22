@@ -1,4 +1,4 @@
-header h1 {
+/* header h1 {
     color: rgb(129, 6, 82);
     background-color: rgb(179, 150, 182);
 }
@@ -8,4 +8,16 @@ main {
     background-color: rgb(250, 179, 212);
     border-style: double;
     font-size: 30px;
+} */
+
+table, td, th {
+    border: 1px solid black;
 }
+  
+  table {
+    border-collapse: collapse;
+    text-align: center;
+    width: 60%;
+    padding: 8px;
+    
+  }
