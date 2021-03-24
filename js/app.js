@@ -108,23 +108,34 @@ const dubai = new Locations ('Dubai',11,38,3.7);
 const paris = new Locations ('Paris',20,38,2.3);
 const Lima = new Locations ('Lima',2,16,4.6);
 
-seatle.getNumOfCust();
-seatle.getNumOfCookies();
-tokyo.getNumOfCust();
-tokyo.getNumOfCookies();
-dubai.getNumOfCust();
-dubai.getNumOfCookies();
-paris.getNumOfCust();
-paris.getNumOfCookies();
-Lima.getNumOfCust();
-Lima.getNumOfCookies();
-
-
 tableHeader();
-seatle.render();
-tokyo.render();
-dubai.render();
-paris.render();
-Lima.render();
+for (let x=0; x<locations.length; x++)
+{
+  locations[x].getNumOfCust();
+  locations[x].getNumOfCookies();
+  locations[x].render();
+}
 tableFooter();
+
+let myForm=document.getElementById('locationForm');
+myForm.addEventListener('submit',addNewCenter);
+function addNewCenter (event){
+  event.preventDefault();
+  let locationName = event.target.name.value;
+  let minNumOfCustomer = event.target.minNumOfCust.value;
+  let maxNumOfCustomer = event.target.maxNumOfCust.value;
+  let avgCookies = event.target.avgNumOfCookies.value;
+
+  const newLocation = new Locations (locationName,minNumOfCustomer,maxNumOfCustomer,avgCookies);
+  newLocation.getNumOfCust();
+  newLocation.getNumOfCookies();
+  let lastRow=(tableEl.rows.length)-1;
+  tableEl.deleteRow(lastRow);
+  newLocation.render();
+  tableFooter();
+}
+
+
+
+
 
