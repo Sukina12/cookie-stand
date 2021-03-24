@@ -4,10 +4,8 @@ let workHours=['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12
 let locations=[];
 
 const container = document.getElementById('Location-profiles');
-const articleEl = document.createElement('article');
-container.appendChild(articleEl);
 const tableEl = document.createElement ('table');
-articleEl.appendChild(tableEl);
+container.appendChild(tableEl);
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -30,13 +28,13 @@ function Locations (name,minNumOfCust,maxNumOfCust,averageNumOfCookies){
 
 // Prototype Method:
 Locations.prototype.getNumOfCust = function(){
-  for (let x = 0; x < 14; x++) {
+  for (let x = 0; x < workHours.length; x++) {
     let cusNum = getRandomNumber(this.minNumOfCust, this.maxNumOfCust);
     this.numOfCust.push(cusNum);
   }
 };
 Locations.prototype.getNumOfCookies = function(){
-  for (let i = 0; i < 14; i++) {
+  for (let i = 0; i < workHours.length; i++) {
     let cookiesNum = Math.floor(this.numOfCust[i] * this.averageNumOfCookies);
     this.numberOfCookies.push(cookiesNum);
     this.total = this.total + cookiesNum;
@@ -87,30 +85,28 @@ let tableFooter = function(){
   th1El.textContent = 'Totals';
 
   for (let i=0; i<workHours.length; i++){
+    let totalCookies=0;
+    for(let j=0; j<locations.length; j++){
+      totalCookies=totalCookies+locations[j].numberOfCookies[i];
+    }
     const th2El = document.createElement('th');
     footerRowEl.appendChild(th2El);
-    th2El.textContent = sumTotal()[i];
+    th2El.textContent=totalCookies;
   }
   const th3El = document.createElement ('th');
   footerRowEl.appendChild(th3El);
-  th3El.textContent =seatle.total+tokyo.total+paris.total+dubai.total+Lima.total;
-};
-let sumTotal = function(){
-  let sum=[];
-  for (let i=0; i<workHours.length; i++){
-    sum[i] = seatle.numberOfCookies[i] + tokyo.numberOfCookies[i]+ paris.numberOfCookies[i] + dubai.numberOfCookies[i] + Lima.numberOfCookies[i];
+  let sumTotal=0;
+  for(let y=0; y<locations.length; y++)
+  {
+    sumTotal=sumTotal+locations[y].total;
   }
-  return sum;
+  th3El.textContent =sumTotal;
 };
-
-
 const seatle = new Locations ('Seatle',23,65,6.3);
 const tokyo = new Locations ('Tokyo',3,24,1.2);
 const dubai = new Locations ('Dubai',11,38,3.7);
 const paris = new Locations ('Paris',20,38,2.3);
 const Lima = new Locations ('Lima',2,16,4.6);
-
-
 
 seatle.getNumOfCust();
 seatle.getNumOfCookies();
