@@ -65,6 +65,7 @@ let tableHeader = function(){
 
   const th1El = document.createElement ('th');
   headerRowEl.appendChild(th1El);
+  th1El.textContent = 'Locations Name';
 
   for (let i=0; i<workHours.length; i++){
     const th2El = document.createElement('th');
